@@ -4,6 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор заработка такси</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
     <script>
         function calculateProfit() {
             let distanceToWork = parseFloat(document.getElementById('distanceToWork').value) || 0;
@@ -23,23 +74,25 @@
             let avgEarningsPerKm = tripDistance > 0 ? (earnings / tripDistance).toFixed(2) : 0;
             
             document.getElementById('result').innerHTML = `
-                Чистый доход: ${netProfit.toFixed(2)} грн<br>
-                Средняя стоимость км (учитывая все затраты): ${avgCostPerKm} грн/км<br>
-                Средняя стоимость км (по доходу и общей длине поездок): ${avgEarningsPerKm} грн/км
+                <p>Чистый доход: <strong>${netProfit.toFixed(2)}</strong> грн</p>
+                <p>Средняя стоимость км (учитывая все затраты): <strong>${avgCostPerKm}</strong> грн/км</p>
+                <p>Средняя стоимость км (по доходу и общей длине поездок): <strong>${avgEarningsPerKm}</strong> грн/км</p>
             `;
         }
     </script>
 </head>
 <body>
-    <h2>Калькулятор заработка такси</h2>
-    <label>Дорога до работы (км): <input type="number" id="distanceToWork" value="25"></label><br>
-    <label>Количество заказов: <input type="number" id="ordersCount" value="8"></label><br>
-    <label>Подача заказа (км): <input type="number" id="orderDistance" value="3"></label><br>
-    <label>Общая длина поездок (км): <input type="number" id="tripDistance" value="73"></label><br>
-    <label>Доход (грн): <input type="number" id="earnings" value="1400"></label><br>
-    <label>Расход топлива (л/100км): <input type="number" id="fuelConsumption" value="10"></label><br>
-    <label>Цена топлива (грн/л): <input type="number" id="fuelPrice" value="61"></label><br>
-    <button onclick="calculateProfit()">Рассчитать</button>
-    <h3 id="result"></h3>
+    <div class="container">
+        <h2>Калькулятор заработка такси</h2>
+        <label>Дорога до работы (км): <input type="number" id="distanceToWork" value="25"></label>
+        <label>Количество заказов: <input type="number" id="ordersCount" value="8"></label>
+        <label>Подача заказа (км): <input type="number" id="orderDistance" value="3"></label>
+        <label>Общая длина поездок (км): <input type="number" id="tripDistance" value="73"></label>
+        <label>Доход (грн): <input type="number" id="earnings" value="1400"></label>
+        <label>Расход топлива (л/100км): <input type="number" id="fuelConsumption" value="10"></label>
+        <label>Цена топлива (грн/л): <input type="number" id="fuelPrice" value="61"></label>
+        <button onclick="calculateProfit()">Рассчитать</button>
+        <div id="result" class="result"></div>
+    </div>
 </body>
 </html>
