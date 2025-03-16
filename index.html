@@ -19,7 +19,14 @@
             let fuelCost = fuelUsed * fuelPrice;
             let netProfit = earnings - fuelCost;
             
-            document.getElementById('result').innerHTML = `Чистый доход: ${netProfit.toFixed(2)} грн`;
+            let avgCostPerKm = totalDistance > 0 ? (fuelCost / totalDistance).toFixed(2) : 0;
+            let avgEarningsPerKm = tripDistance > 0 ? (earnings / tripDistance).toFixed(2) : 0;
+            
+            document.getElementById('result').innerHTML = `
+                Чистый доход: ${netProfit.toFixed(2)} грн<br>
+                Средняя стоимость км (учитывая все затраты): ${avgCostPerKm} грн/км<br>
+                Средняя стоимость км (по доходу и общей длине поездок): ${avgEarningsPerKm} грн/км
+            `;
         }
     </script>
 </head>
