@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор заработка такси</title>
+    <title>Калькулятор заробітку таксі</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,24 +74,24 @@
             let avgEarningsPerKm = tripDistance > 0 ? (earnings / tripDistance).toFixed(2) : 0;
             
             document.getElementById('result').innerHTML = `
-                <p>Чистый доход: <strong>${netProfit.toFixed(2)}</strong> грн</p>
-                <p>Средняя стоимость км (учитывая все затраты): <strong>${avgCostPerKm}</strong> грн/км</p>
-                <p>Средняя стоимость км (по доходу и общей длине поездок): <strong>${avgEarningsPerKm}</strong> грн/км</p>
+                <p>Чистий дохід: <strong>${netProfit.toFixed(2)}</strong> грн</p>
+                <p>Середня вартість км (з урахуванням витрат): <strong>${avgCostPerKm}</strong> грн/км</p>
+                <p>Середня вартість км (за доходом і довжиною поїздок): <strong>${avgEarningsPerKm}</strong> грн/км</p>
             `;
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h2>Калькулятор заработка такси</h2>
-        <label>Дорога до работы (км): <input type="number" id="distanceToWork" value="25"></label>
-        <label>Количество заказов: <input type="number" id="ordersCount" value="8"></label>
-        <label>Подача заказа (км): <input type="number" id="orderDistance" value="3"></label>
-        <label>Общая длина поездок (км): <input type="number" id="tripDistance" value="73"></label>
-        <label>Доход (грн): <input type="number" id="earnings" value="1400"></label>
-        <label>Расход топлива (л/100км): <input type="number" id="fuelConsumption" value="10"></label>
-        <label>Цена топлива (грн/л): <input type="number" id="fuelPrice" value="61"></label>
-        <button onclick="calculateProfit()">Рассчитать</button>
+        <h2>Калькулятор заробітку таксі</h2>
+        <label>Дорога до роботи (км): <input type="number" id="distanceToWork" value="25"></label>
+        <label>Кількість замовлень: <input type="number" id="ordersCount" value="8"></label>
+        <label>Подача замовлення (км): <input type="number" id="orderDistance" value="3"></label>
+        <label>Загальна довжина поїздок (км): <input type="number" id="tripDistance" value="73"></label>
+        <label>Дохід (грн): <input type="number" id="earnings" value="1400"></label>
+        <label>Витрата пального (л/100км): <input type="number" id="fuelConsumption" value="10"></label>
+        <label>Ціна пального (грн/л): <input type="number" id="fuelPrice" value="61"></label>
+        <button onclick="calculateProfit()">Розрахувати</button>
         <div id="result" class="result"></div>
     </div>
 </body>
